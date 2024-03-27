@@ -1,6 +1,7 @@
 package main
 
 import (
+	"api-shortner/routes"
 	"fmt"
 	"log"
 	"os"
@@ -27,8 +28,8 @@ func main() {
 	app := *fiber.New()
 	app.Use(logger.New())
 
-	setupRoutes(app)
+	setupRoutes(&app)
 
-	log.Fatal(app.listen(os.Getenv("APP_PORT")))
+	log.Fatal(app.Listen(os.Getenv("APP_PORT")))
 
 }
